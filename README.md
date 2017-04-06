@@ -1,8 +1,13 @@
 # IseqCollector
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/iseq_collector`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem introduce several methdos to `ObjectSpace` to operate all of iseq objects in a process.
 
-TODO: Delete this and the text above, and describe your gem
+## Background
+
+Ruby (MRI) 2.2 and erlier, all of bytecode (iseq: instruction sequence) are `RubyVM::InstructionSequence` objects and we can touch them with `ObjectSpace.each_object` method.
+However Ruby 2.3 and later does not expose iseqs by `RubyVM::InstructionSequence`. You need to use `RubyVM::InstructionSequence.of(proc or method object)` to get `RubyVM::InstructionSequence` and it is impossible to get all of iseqs in a process.
+
+This gem provides `ObjectSpace.each_iseq`, `ObjectSpace.count_iseq` and `ObjectSpace.memsize_of_all_iseq` to get all of iseqs in a process for Ruby 2.3, 2.4. Ruby 2.5 will provide same feature in `objspace` external lib.
 
 ## Installation
 
@@ -22,7 +27,11 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+`require 'iseq_collector'` adds the following singleton methods to `ObjectSpace` module.
+
+* `ObjectSpace.each_iseq{|iseq| ...}`
+* `ObjectSpace.count_iseq #=> Integer`
+* `ObjectSpace.memsize_of_all_iseq #=> Integer` (this feature can be implemented by `ObjectSpace.each_iseq`)
 
 ## Development
 
