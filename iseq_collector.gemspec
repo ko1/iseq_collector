@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Koichi Sasada"]
   spec.email         = ["ko1@atdot.net"]
 
-  spec.summary       = %q{ISeq collector for MRI 2.3 and 2.4}
-  spec.description   = %q{ISeq collector for MRI 2.3 and 2.4}
+  spec.summary       = %q{ISeq collector for MRI 2.3 and later.}
+  spec.description   = %q{ISeq collector for MRI 2.3 and later.}
   spec.homepage      = "https://github.com/ko1/iseq_collector"
   spec.license       = "MIT"
 

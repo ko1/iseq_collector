@@ -17,12 +17,10 @@ when RUBY_VERSION < '2.3.0'
       cnt
     end
   end
-when RUBY_VERSION >= '2.3.0' && RUBY_VERSION < '2.5.0'
+
+when RUBY_VERSION >= '2.3.0' && !ObjectSpace.respond_to?(:count_iseq)
   require_relative 'iseq_collector.so'
-when RUBY_VERSION == '2.5.0'
-  unless ObjectSpace.respond_to? :count_iseq
-    require_relative 'iseq_collector.so'
-  end
+else
   # do nothing.
 end
 

@@ -7,7 +7,7 @@ This gem introduce several methdos to `ObjectSpace` to operate all of iseq objec
 Ruby (MRI) 2.2 and erlier, all of bytecode (iseq: instruction sequence) are `RubyVM::InstructionSequence` objects and we can touch them with `ObjectSpace.each_object` method.
 However Ruby 2.3 and later does not expose iseqs by `RubyVM::InstructionSequence`. You need to use `RubyVM::InstructionSequence.of(proc or method object)` to get `RubyVM::InstructionSequence` and it is impossible to get all of iseqs in a process.
 
-This gem provides `ObjectSpace.each_iseq`, `ObjectSpace.count_iseq` and `ObjectSpace.memsize_of_all_iseq` to get all of iseqs in a process for Ruby 2.3, 2.4. Ruby 2.5 will provide same feature in `objspace` external lib.
+This gem provides `ObjectSpace.each_iseq`, `ObjectSpace.count_iseq` and `ObjectSpace.memsize_of_all_iseq` to get all of iseqs in a process for Ruby 2.3 and later. Future Ruby version can provide same purpose API, but not sure.
 
 ## Installation
 
