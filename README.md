@@ -1,6 +1,6 @@
 # IseqCollector
 
-This gem introduce several methdos to `ObjectSpace` to operate all of iseq objects in a process.
+This gem introduce several methods to `ObjectSpace` to operate all of iseq objects in a process.
 
 ## Background
 
